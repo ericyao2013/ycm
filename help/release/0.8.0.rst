@@ -17,6 +17,14 @@ Build System
 Modules
 =======
 
+Generic Modules
+---------------
+* :module:`YCMEPHelper`: The ``CMAKE_PREFIX_PATH` list passed to the subproject
+  now has the first element the installation directory of the superbuild. This 
+  is to ensure that if a package is available in the system but it is disabled
+  using ``USE_SYSTEM_<package>`` set to ``OFF``, the version installed by the 
+  superbuild is the one found by the other packages in the superbuild.
+
 CMake Next
 ----------
 
