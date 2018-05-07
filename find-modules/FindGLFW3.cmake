@@ -112,9 +112,9 @@ endif()
 if(TARGET glfw)
   # If the upstream target glfw exists, make GLFW::GLFW3 an alias of it 
   # Note: ALIAS of imported targets are not supported, so we define an 
-  # interface target that links in a public way to glfw
-  add_library(GLFW3::GLFW3 INTERFACE)
-  target_link_libraries(GLFW3::GLFW3 INTERFACE glfw)
+  # imported interface target that links in a public way to glfw
+  add_library(GLFW3::GLFW3 INTERFACE IMPORTED)
+  set_target_properties(GLFW3::GLFW3 PROPERTIES INTERFACE_LINK_LIBRARIES glfw)
 else()
   add_library(GLFW3::GLFW3 STATIC IMPORTED)
   set_target_properties(GLFW3::GLFW3 PROPERTIES
